@@ -208,7 +208,7 @@ function PrintElem(elem){
         document.getElementById("there").innerHTML="<br><br>===========================<br>Date: "+ d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()+1+"<br>User: "+localStorage.getItem("account")+"<br>Bought "+document.getElementById("coin").value+" Token<br><br>===========================<br>Thank you for using the Sam Machine<br>==========================="
     }
     function re(params) {
-        alert("Thank for using the Sam Machine. Remember, I you do not have enough tokens, you will not get anything in return. Make sure to check the database to be sure.")
+        alert("Thank for using the Sam Machine. Remember, if you do not have enough tokens, you will not get anything in return. Make sure to check the database to be sure.")
         let d = new Date;
         update(parseInt(document.getElementById("ttr").value), true)
         document.getElementById("mernt").hidden = true
