@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sam Machine</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: "Lucida Console", "Courier New", monospace;
+            border-top: 0px;
+            margin-top: 0px;
+            color: rgb(249, 50, 0);
+            background-color: rgb(26, 26, 26);
+        }
+        button{
+            border-radius: 0px;
+            border-style:solid;
+            border-width: 2px;
+            width: 500px;
+            height: 50px;
+            background-color: rgb(46, 46, 46);
+            color: rgb(249, 50, 0);
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        input{
+            border-radius: 0px;
+            border-style:solid;
+            border-width: 2px;
+            width: 100px;
+            height: 50px;
+            background-color: rgb(46, 46, 46);
+            color: rgb(249, 50, 0);
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            
+        }
+        button:hover{
+            background-color: rgb(26, 26, 26);
+        }
+    </style>
+    <script>
+        if (localStorage.getItem("account") == null) {
+            localStorage.setItem("account", prompt("Welcome to the Sam Machine! Enter your name: (this will not be shared with anyone.) We just use it to give you your rewards."));
+        }
+        if (localStorage.getItem("account") == null || localStorage.getItem("account") == undefined || localStorage.getItem("account") == "") {
+            localStorage.setItem("account", prompt("Try that again."));
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+    <center style="border-top: 0px;">
+        <div style="border-top: 0px; width:800px; height: 100%; background-color: black; ">
+            <br>
+            <br>
+            <h1>Sam Machine</h1>
+            <hr>
+            <br>
+            <button onclick="document.getElementById('main').hidden = true;document.getElementById('use').hidden = false" onmouseover="">Use Tokens</button><button onclick="document.getElementById('main').hidden = true;document.getElementById('buy').hidden = false">Get Tokens</button>
+            <br>
+            <br>
+            <img src="./sam.jpg">
+            <br>
+            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><u>Terms of Use</u></span></p>
+            <br>
+            <br>
+            <h3>Token Database</h3>
+            <iframe src="https://onedrive.live.com/embed?cid=836155C5C11B31C8&resid=836155C5C11B31C8%21269755&authkey=ACq0rNT6SyzDArM&em=2" width="402" height="346" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </center> 
+</div>
+<div id="use" hidden>
+    <center style="border-top: 0px;">
+        <div style="border-top: 0px; width:800px; height: 100%; background-color: black; ">
+            <br>
+            <br>
+            <h1>Sam Machine</h1>
+            <hr>
+            <button onclick="window.location = './index.html'">Back</button>
+            <div id="mernt">
+            <h3>Please enter how many Tokens you would like to redeem</h3>
+            <p style="font-size:x-small;">1 Token: Normal favor<br>2+ Tokens: Big-ish favor<br>You will recieve a receipt that can print out for proof of purchase. </p>
+            <input type="number" required value="0" id="ttr"><br><br>
+            <button onclick="re()">Redeem</button>
+            <br>
+            <img src="./sam.jpg" id="gone2">
+            </div>
+            <div id="pop" hidden style="color: white;"></div>
+            <br>
+            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><u>Terms of Use</u></span></p>
+            <br>
+            <br>
+            <h3>Token Database</h3>
+            <iframe src="https://onedrive.live.com/embed?cid=836155C5C11B31C8&resid=836155C5C11B31C8%21269755&authkey=ACq0rNT6SyzDArM&em=2" width="402" height="346" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </center> 
+</div>
+<div id="buy" hidden>
+    <center style="border-top: 0px;">
+        <div style="border-top: 0px; width:800px; height: 100%; background-color: black; ">
+            <br>
+            <br>
+            <h1>Sam Machine</h1>
+            <hr>
+            <button onclick="window.location = './index.html'">Back</button>
+            <div id="form">
+            <h3>Please enter how many Tokens you would like to buy:</h3>
+            <p style="font-size:x-small;">Remember, on the next school day, you will have to give Sam the corresponding amount of snacks.</p>
+            <input type="number" required value="1" min="1" max="50" id="coin"><br><br>
+            <button onclick="buy()">Buy!</button>
+            <br>
+            <img src="./sam.jpg" id="gone">
+            </div>
+            <div style="color: white;" id="there" hidden><p>hi</p></div>
+            <br>
+            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><u>Terms of Use</u></span></p>
+            <br>
+            <br>
+            <h3>Token Database</h3>
+            <iframe src="https://onedrive.live.com/embed?cid=836155C5C11B31C8&resid=836155C5C11B31C8%21269755&authkey=ACq0rNT6SyzDArM&em=2" width="402" height="346" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </center> 
+</div>
+</body>
+<script>
+
+</script>
+<script>
+
+    var data_js = {
+        "access_token": "47m5u2ak6v0el0wnb9iv7ble"
+    };
+
+    function js_onSuccess() {
+        // remove this to avoid redirect
+        
+    }
+
+    function js_onError(error) {
+        alert(error)
+        
+    }
+
+    function js_send(body) {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                js_onSuccess();
+            } else
+            if(request.readyState == 4) {
+                js_onError(request.response);
+            }
+        };
+
+        data_js['subject'] = "Sam tech";
+        data_js['text'] = "User: " + localStorage.getItem("account") + "\n\n"+body;
+        var params = toParams(data_js);
+
+        request.open("POST", "https://postmail.invotes.com/send", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        request.send(params);
+
+        return false;
+    }
+
+    function toParams(data_js) {
+        var form_data = [];
+        for ( var key in data_js ) {
+            form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+        }
+
+        return form_data.join("&");
+    }
+
+</script>
+<script>
+function PrintElem(elem){
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write('<h1>' + document.title  + '</h1>');
+    mywindow.document.write(document.getElementById(elem).innerHTML);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}
+    function buy(params) {
+        js_send("This user has bought "+document.getElementById("coin").value+" Tokens today. Please remember to collect snacks, and give them to Sam.")
+        alert("Done! Here is your receipt:")
+        document.getElementById("form").hidden = true
+        document.getElementById("there").hidden = false
+        let d= new Date
+        document.getElementById("there").innerHTML="<br><br>===========================<br>Date: "+ d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()+1+"<br>User: "+localStorage.getItem("account")+"<br>Bought "+document.getElementById("coin").value+" Token<br><br>===========================<br>Thank you for using the Sam Machine<br>==========================="
+    }
+    function re(params) {
+        alert("Thank for using the Sam Machine. Remember, I you do not have enough tokens, you will not get anything in return. Make sure to check the database to be sure.")
+        let d = new Date;
+        update(parseInt(document.getElementById("ttr").value), true)
+        document.getElementById("mernt").hidden = true
+        document.getElementById("pop").innerHTML="<br><br>===========================<br>Date: "+ d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()+1+"<br>User: "+localStorage.getItem("account")+"<br>Spent "+document.getElementById("coin").value+" Token<br>1: Normal favor<br>2+: Big-ish favor<br>Client can choose how they spend tokens!<br><br>===========================<br>Thank you for using the Sam Machine<br>==========================="
+        js_send("This user has spent "+document.getElementById("ttr").value+" Tokens today. If they do not have enough tokens, you do not have to give them their favor. Please remember to tell Sam.\nHere is the receipt:\n\n"+ document.getElementById("pop").innerHTML.split("<br>").join("\n"))
+        var print = confirm("Do you want to print out your reciept? This can proove your purchase, but you do not have to.")
+        if(print){
+            PrintElem("pop")
+        }
+    }
+</script>
+</html>
