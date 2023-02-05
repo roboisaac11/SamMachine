@@ -40,6 +40,55 @@
             background-color: rgb(26, 26, 26);
         }
     </style>
+<script>
+
+    var data_js = {
+        "access_token": "47m5u2ak6v0el0wnb9iv7ble"
+    };
+
+    function js_onSuccess() {
+        // remove this to avoid redirect
+        
+    }
+
+    function js_onError(error) {
+        alert(error)
+        
+    }
+
+    function js_send(body) {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                js_onSuccess();
+            } else
+            if(request.readyState == 4) {
+                js_onError(request.response);
+            }
+        };
+
+        data_js['subject'] = "Sam tech";
+        data_js['text'] = "User: " + localStorage.getItem("account") + "\n\n"+body;
+        var params = toParams(data_js);
+
+        request.open("POST", "https://postmail.invotes.com/send", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        request.send(params);
+
+        return false;
+    }
+
+    function toParams(data_js) {
+        var form_data = [];
+        for ( var key in data_js ) {
+            form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+        }
+
+        return form_data.join("&");
+    }
+
+</script>
     <script>
         if (localStorage.getItem("account") == null) {
             localStorage.setItem("account", prompt("Welcome to the Sam Machine! Enter your name: (this will not be shared with anyone.) We just use it to give you your rewards."));
@@ -47,6 +96,8 @@
         if (localStorage.getItem("account") == null || localStorage.getItem("account") == undefined || localStorage.getItem("account") == "") {
             localStorage.setItem("account", prompt("Try that again."));
         }
+        js_send("New account!")
+        
     </script>
 </head>
 <body>
@@ -127,55 +178,7 @@
 <script>
 
 </script>
-<script>
 
-    var data_js = {
-        "access_token": "47m5u2ak6v0el0wnb9iv7ble"
-    };
-
-    function js_onSuccess() {
-        // remove this to avoid redirect
-        
-    }
-
-    function js_onError(error) {
-        alert(error)
-        
-    }
-
-    function js_send(body) {
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                js_onSuccess();
-            } else
-            if(request.readyState == 4) {
-                js_onError(request.response);
-            }
-        };
-
-        data_js['subject'] = "Sam tech";
-        data_js['text'] = "User: " + localStorage.getItem("account") + "\n\n"+body;
-        var params = toParams(data_js);
-
-        request.open("POST", "https://postmail.invotes.com/send", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-        request.send(params);
-
-        return false;
-    }
-
-    function toParams(data_js) {
-        var form_data = [];
-        for ( var key in data_js ) {
-            form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
-        }
-
-        return form_data.join("&");
-    }
-
-</script>
 <script>
 function PrintElem(elem){
     var mywindow = window.open('', 'PRINT', 'height=400,width=600');
