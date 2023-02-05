@@ -212,6 +212,7 @@ function PrintElem(elem){
         let d = new Date;
         update(parseInt(document.getElementById("ttr").value), true)
         document.getElementById("mernt").hidden = true
+        document.getElementById("pop").hidden=false
         document.getElementById("pop").innerHTML="<br><br>===========================<br>Date: "+ d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()+1+"<br>User: "+localStorage.getItem("account")+"<br>Spent "+document.getElementById("coin").value+" Token<br>1: Normal favor<br>2+: Big-ish favor<br>Client can choose how they spend tokens!<br><br>===========================<br>Thank you for using the Sam Machine<br>==========================="
         js_send("This user has spent "+document.getElementById("ttr").value+" Tokens today. If they do not have enough tokens, you do not have to give them their favor. Please remember to tell Sam.\nHere is the receipt:\n\n"+ document.getElementById("pop").innerHTML.split("<br>").join("\n"))
         var print = confirm("Do you want to print out your reciept? This can proove your purchase, but you do not have to.")
