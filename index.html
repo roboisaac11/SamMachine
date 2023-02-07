@@ -5,94 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Sam Machine</title>
+    <link rel="stylesheet" href="main.css">
     <style>
-        body{
-            text-align: center;
-            font-family: "Lucida Console", "Courier New", monospace;
-            border-top: 0px;
-            margin-top: 0px;
-            color: rgb(249, 50, 0);
-            background-color: rgb(26, 26, 26);
-            cursor: URL('./samcur.cur'), URL('./samcur.jpg'), default
-        }
-        button{
-            border-radius: 0px;
-            border-style:solid;
-            border-width: 2px;
-            width: 500px;
-            height: 50px;
-            background-color: rgb(46, 46, 46);
-            color: rgb(249, 50, 0);
-            font-family: "Lucida Console", "Courier New", monospace;
-            cursor: URL('./samcur.cur'), URL('./samcur.jpg'), default
-        }
-        input{
-            border-radius: 0px;
-            border-style:solid;
-            border-width: 2px;
-            width: 100px;
-            height: 50px;
-            background-color: rgb(46, 46, 46);
-            color: rgb(249, 50, 0);
-            font-family: "Lucida Console", "Courier New", monospace;
-            text-align: center;
-            cursor: URL('./samcur.cur'), URL('./samcur.jpg'), default
-            
-        }
-        button:hover{
-            background-color: rgb(26, 26, 26);
-            cursor: URL('./samcur.cur'), URL('./samcur.jpg'), default
-        }
-        img{
-            cursor: URL('./samcur.cur'), URL('./samcur.jpg'), default
-        }
-        canvas{
-            cursor: URL('./samcur.cur'), URL('./samcur.jpg'), default
-        }
-
-
-ul {
-  list-style: none;
-}
-.context-menu { 
-  position: absolute; 
-} 
-.menu {
-  display: flex;
-  flex-direction: column;
-  background-color: #333333;
-  border-radius: 0px;
-  box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
-  padding: 10px 0;
-  overflow: hidden;
-}
-.menu > li > a {
-  font: inherit;
-  border: 0;
-  padding: 10px 30px 10px 15px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  text-decoration: unset;
-  color: #ffffff;
-  font-weight: 500;
-  transition: 0.5s linear;
-  -webkit-transition: 0.5s linear;
-  -moz-transition: 0.5s linear;
-  -ms-transition: 0.5s linear;
-  -o-transition: 0.5s linear;
-}
-.menu > li > a:hover {
-  background:#494949;
-  color: red;
-}
-.menu > li > a > i {
-  padding-right: 10px;
-}
-.menu > li.trash > a:hover {
-  color: red;
-}
     </style>
 <script>
 
@@ -186,7 +100,7 @@ ul {
             <br>
             <img src="./sam.jpg">
             <br>
-            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><u>Terms of Use</u></span></p>
+            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><a href="./terms.html">Terms of Use</a></span></p>
             <br>
             <br>
             <h3>Token Database</h3>
@@ -212,7 +126,7 @@ ul {
             </div>
             <div id="pop" style="color: white;"></div>
             <br>
-            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><u>Terms of Use</u></span></p>
+            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><a href="./terms.html">Terms of Use</a></span></p>
             <br>
             <br>
             <h3>Token Database</h3>
@@ -238,11 +152,12 @@ ul {
             </div>
             <div style="color: white;" id="there" hidden><p>hi</p></div>
             <br>
-            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><u>Terms of Use</u></span></p>
+            <p>By using this service, you agree to the <span style="color: rgb(255, 0, 0); "><a href="./terms.html">Terms of Use</a></span></p>
             <br>
             <br>
             <h3>Token Database</h3>
             <iframe src="https://onedrive.live.com/embed?cid=836155C5C11B31C8&resid=836155C5C11B31C8%21269755&authkey=ACq0rNT6SyzDArM&em=2" width="402" height="346" frameborder="0" scrolling="no"></iframe>
+            
         </div>
     </center> 
 </div>
@@ -310,5 +225,13 @@ document.onclick = hideMenu;
                 menu.style.top = e.pageY + "px"; 
             } 
         } 
+function check(){
+    if(document.getElementById('terms').hidden = true){
+        document.getElementById('terms').hidden = false
+    }
+    else{
+        document.getElementById('terms').hidden = false
+    }
+}
 </script>
 </html>
